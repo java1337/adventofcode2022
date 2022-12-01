@@ -68,20 +68,9 @@ class Day20221201(private val input: List<String>): DailyChallenge {
     }
 
     private fun parseElvesLoads(): List<Long> {
-        var thisElfHas = 0L
-        val results = mutableListOf<Long>()
-        input.forEach {
-            if (it.isBlank()) {
-                results.add(thisElfHas)
-                thisElfHas = 0
-            } else {
-                thisElfHas += it.toLong()
-            }
-        }
-        if (thisElfHas > 0) {
-            results.add(thisElfHas)
-        }
-        return results
+        return input
+            .splitWhen { it.isBlank() }
+            .map { sublist -> sublist.sumOf { it.toLong() } }
     }
 
     override fun first() = parseElvesLoads().maxOf { it }.toString()

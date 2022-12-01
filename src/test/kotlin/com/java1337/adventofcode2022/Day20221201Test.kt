@@ -6,7 +6,7 @@ import org.junit.Assert.*
 
 class Day20221201Test {
 
-    val sample = listOf(
+    private val sample = listOf(
         "1000",
         "2000",
         "3000",
